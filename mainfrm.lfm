@@ -1,0 +1,93 @@
+object MainForm: TMainForm
+  Left = 0
+  Height = 260
+  Top = 0
+  Width = 256
+  Caption = 'Annuaire'
+  ClientHeight = 260
+  ClientWidth = 256
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Name = 'Tahoma'
+  FormStyle = fsMDIForm
+  Menu = mmMenu1
+  OnCloseQuery = FormCloseQuery
+  OnKeyUp = FormKeyUp
+  OnShow = FormShow
+  Position = poScreenCenter
+  Visible = False
+  WindowState = wsMaximized
+  object StreamCpta: TAxcBSCPTAApplication100c
+    Left = 88
+    Height = 24
+    Top = 216
+    Width = 24
+    TabOrder = 0
+    UseDockManager = False
+    Active = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 260
+    Top = 0
+    Width = 256
+    Align = alClient
+    ParentColor = False
+    TabOrder = 1
+  end
+  object mmMenu1: TMainMenu
+    object mmiFichier: TMenuItem
+      Caption = 'Fichier'
+      object mmiFichierOuvrir: TMenuItem
+        Caption = 'Ouvrir...'
+        ShortCut = 16463
+        OnClick = mmiFichierOuvrirClick
+      end
+      object mmiFichierFermer: TMenuItem
+        Caption = 'Fermer'
+        ShortCut = 16471
+        OnClick = mmiFichierFermerClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object mmiFichierQuitter: TMenuItem
+        Caption = 'Quitter'
+        ShortCut = 16465
+        OnClick = mmiFichierQuitterClick
+      end
+    end
+    object mmiEdition: TMenuItem
+      Caption = 'Edition'
+      object mmiEditionNouveau: TMenuItem
+        Action = aliEditionNouveau
+      end
+      object mmiEditionSupp: TMenuItem
+        Action = aliEditionSupp
+      end
+    end
+    object mmiStruct: TMenuItem
+      Caption = 'Structure'
+      object mmiStructTiers: TMenuItem
+        Caption = 'Tiers'
+        OnClick = mmiStructTiersClick
+      end
+    end
+  end
+  object alEdition: TActionList
+    State = asSuspended
+    left = 64
+    top = 88
+    object aliEditionNouveau: TAction
+      Caption = 'Ajouter'
+    end
+    object aliEditionSupp: TAction
+      Caption = 'Supprimer'
+    end
+  end
+  object OpenDialoglSelFic: TOpenDialog
+    Filter = 'Fichier comptable (*.mae)|*.mae'
+    left = 152
+    top = 152
+  end
+end
