@@ -6,9 +6,9 @@ uses
   Classes, SysUtils,
   Objets100cLib_3_0_TLB,
   StrUtils {pour "case AnsiIndexStr"},
-  Forms,
+  Forms {pour "Application.MessageBox"},
   ComCtrls { pour FreeListViewObjects },
-  LCLType;
+  LCLType { pour MB_OK + MB_ICONERROR };
 
 procedure MessageErreur(AMessage: string);
 function TypeTiers(AType: string): TiersType; overload;

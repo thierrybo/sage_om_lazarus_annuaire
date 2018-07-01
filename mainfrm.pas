@@ -7,7 +7,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
   ActnList, ExtCtrls, Objets100cLib_3_0_TLB,
-  commun;
+  commun,
+  LCLType { pour VK_ESCAPE };
 
 type
 
@@ -62,7 +63,7 @@ begin
 end;
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-//
+  FermeMenu;
 end;
 procedure TMainForm.mmiFichierOuvrirClick(Sender: TObject);
 begin
@@ -87,7 +88,7 @@ begin
 end;
 procedure TMainForm.mmiFichierFermerClick(Sender: TObject);
 begin
-//
+  FermeMenu;
 end;
 procedure TMainForm.mmiFichierQuitterClick(Sender: TObject);
 begin
@@ -107,8 +108,24 @@ end;
 procedure TMainForm.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
   );
 begin
-//
+  { VB :
+    If e.KeyCode = Keys.Escape AndAlso Not Me.ActiveMdiChild Is Nothing Then
+        Me.ActiveMdiChild.Close()
+    End If }
+
+  { Marche pas comme VB }
+    if (Key = VK_ESCAPE) and (MDIChildCount > 0) then
+        MDIChildren[0].Close;
 end;
+
+{ Remplacé par un TactionList }
+//procedure TMainForm.mmiEditionNouveauClick(Sender: TObject);
+//var
+//  A : Integer;
+//begin
+//  { A priori ne sert à rien (c'était dans ex VB }
+//  A := 3;
+//end;
 
 {$region 'Sub Frm'}
 
