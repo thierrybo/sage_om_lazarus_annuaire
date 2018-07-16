@@ -15,32 +15,35 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
-    aliEditionNouveau: TAction;
-    aliEditionSupp: TAction;
-    alEdition: TActionList;
-    mmiEdition: TMenuItem;
-    mmiStruct: TMenuItem;
-    mmiStructTiers: TMenuItem;
-    mmiEditionNouveau: TMenuItem;
-    mmiEditionSupp: TMenuItem;
-    mmiFichierFermer: TMenuItem;
-    N1: TMenuItem;
-    mmiFichierQuitter: TMenuItem;
+    mmMenu1: TMainMenu;
     mmiFichier: TMenuItem;
     mmiFichierOuvrir: TMenuItem;
-    mmMenu1: TMainMenu;
+    mmiFichierFermer: TMenuItem;
+    mmiFichierQuitter: TMenuItem;
+    mmiEdition: TMenuItem;
+    mmiEditionNouveau: TMenuItem;
+    mmiEditionSupp: TMenuItem;
+    mmiStruct: TMenuItem;
+    mmiStructTiers: TMenuItem;
+    N1: TMenuItem;
     OpenDialoglSelFic: TOpenDialog;
     Panel1: TPanel;
+    alEdition: TActionList;
+    aliEditionNouveau: TAction;
+    aliEditionSupp: TAction;
     StreamCpta: TAxcBSCPTAApplication100c;
-    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
-    procedure mmiFichierFermerClick(Sender: TObject);
     procedure mmiFichierOuvrirClick(Sender: TObject);
+    procedure mmiFichierFermerClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure mmiFichierQuitterClick(Sender: TObject);
     procedure mmiStructTiersClick(Sender: TObject);
+    //    procedure mmiEditionNouveauClick(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FBaseCpta     : IBSCPTAApplication3;
+    FTiersCourant : IBOTiers3;
+//    FListeTiers   : FrmListeTiers;
     procedure InitMenu();
     procedure FermeMenu();
   public
@@ -52,6 +55,8 @@ var
   MainForm: TMainForm;
 
 implementation
+
+uses listetiersfrm;
 
 {$R *.lfm}
 
@@ -103,7 +108,18 @@ begin
 end;
 procedure TMainForm.mmiStructTiersClick(Sender: TObject);
 begin
-//
+  try
+    CloseAllFrm();
+    { A priori comme on sait qu'il n'y a qu'une fenêtre enfant ici on pourrait
+      uniquement fermer ListeTiersForm comme ci-dessous, mais pas s'il y avait
+      plusieurs fenêtres filles. }
+//    if assigned(TListeTiersForm.ListeTiersForm) then
+//      TListeTiersForm.ListeTiersForm.Close;
+    TListeTiersForm.ListeTiersForm := TListeTiersForm.Create(Self, FBaseCpta);
+    TListeTiersForm.ListeTiersForm.Show();
+  except on E: Exception do
+    MessageErreur(E.Message);
+  end;
 end;
 procedure TMainForm.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
   );

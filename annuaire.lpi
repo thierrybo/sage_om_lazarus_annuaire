@@ -8,7 +8,6 @@
       <MainUnit Value="0"/>
       <Title Value="annuaire"/>
       <ResourceType Value="res"/>
-      <UseXPManifest Value="True"/>
       <Icon Value="0"/>
     </General>
     <BuildModes Count="3">
@@ -100,7 +99,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="5">
       <Unit0>
         <Filename Value="annuaire.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -116,6 +115,20 @@
         <Filename Value="commun.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="listetiersfrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ListeTiersForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="detailfrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DetailForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

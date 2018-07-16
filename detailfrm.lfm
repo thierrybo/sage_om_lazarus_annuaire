@@ -1,0 +1,806 @@
+object DetailForm: TDetailForm
+  Left = 0
+  Height = 360
+  Top = 0
+  Width = 434
+  ActiveControl = pgcTiers
+  BorderStyle = bsDialog
+  Caption = 'Tiers'
+  ClientHeight = 360
+  ClientWidth = 434
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Microsoft Sans Serif'
+  Position = poDesktopCenter
+  Visible = False
+  object pgcTiers: TPageControl
+    Left = 8
+    Height = 352
+    Top = 8
+    Width = 416
+    ActivePage = tshCoord
+    TabIndex = 0
+    TabOrder = 0
+    object tshCoord: TTabSheet
+      Caption = 'Coordonnées'
+      ClientHeight = 326
+      ClientWidth = 408
+      object lblNum: TLabel
+        Left = 8
+        Height = 13
+        Top = 12
+        Width = 43
+        Caption = 'Numéro :'
+        Layout = tlCenter
+        ParentColor = False
+      end
+      object lblTxtNum: TLabel
+        Left = 64
+        Height = 1
+        Top = 12
+        Width = 1
+        Color = clDefault
+        Font.Color = clWindowText
+        Font.Height = -11
+        ParentFont = False
+        Transparent = False
+      end
+      object lblTypeTiers: TLabel
+        Left = 248
+        Height = 1
+        Top = 12
+        Width = 1
+        Color = clDefault
+        Layout = tlCenter
+        Transparent = False
+      end
+      object lblType: TLabel
+        Left = 200
+        Height = 13
+        Top = 12
+        Width = 30
+        Caption = 'Type :'
+        ParentColor = False
+      end
+      object ledtIntitule: TLabeledEdit
+        Left = 64
+        Height = 21
+        Top = 40
+        Width = 128
+        EditLabel.AnchorSideTop.Control = ledtIntitule
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = ledtIntitule
+        EditLabel.AnchorSideBottom.Control = ledtIntitule
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 9
+        EditLabel.Height = 13
+        EditLabel.Top = 44
+        EditLabel.Width = 52
+        EditLabel.Caption = 'Intitulé       '
+        EditLabel.ParentColor = False
+        EditLabel.Layout = tlCenter
+        LabelPosition = lpLeft
+        MaxLength = 35
+        TabOrder = 0
+      end
+      object ledtContact: TLabeledEdit
+        Left = 248
+        Height = 21
+        Top = 40
+        Width = 144
+        EditLabel.AnchorSideTop.Control = ledtContact
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = ledtContact
+        EditLabel.AnchorSideBottom.Control = ledtContact
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 199
+        EditLabel.Height = 13
+        EditLabel.Top = 44
+        EditLabel.Width = 46
+        EditLabel.Caption = 'Contact   '
+        EditLabel.ParentColor = False
+        EditLabel.Layout = tlCenter
+        LabelPosition = lpLeft
+        MaxLength = 35
+        TabOrder = 1
+      end
+      object gb1: TGroupBox
+        Left = 8
+        Height = 128
+        Top = 72
+        Width = 392
+        Caption = 'Coordonnées postales'
+        ClientHeight = 110
+        ClientWidth = 388
+        ParentColor = False
+        TabOrder = 2
+        object ledtAdresse: TLabeledEdit
+          Left = 80
+          Height = 21
+          Top = 10
+          Width = 304
+          EditLabel.AnchorSideTop.Control = ledtAdresse
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtAdresse
+          EditLabel.AnchorSideBottom.Control = ledtAdresse
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 9
+          EditLabel.Height = 13
+          EditLabel.Top = 14
+          EditLabel.Width = 68
+          EditLabel.Caption = 'Adresse          '
+          EditLabel.ParentColor = False
+          EditLabel.Layout = tlCenter
+          LabelPosition = lpLeft
+          MaxLength = 35
+          TabOrder = 0
+        end
+        object ledtComplement: TLabeledEdit
+          Left = 80
+          Height = 21
+          Top = 34
+          Width = 304
+          EditLabel.AnchorSideTop.Control = ledtComplement
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtComplement
+          EditLabel.AnchorSideBottom.Control = ledtComplement
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 7
+          EditLabel.Height = 13
+          EditLabel.Top = 38
+          EditLabel.Width = 70
+          EditLabel.Caption = 'Complément    '
+          EditLabel.ParentColor = False
+          LabelPosition = lpLeft
+          MaxLength = 35
+          TabOrder = 1
+        end
+        object ledtCP: TLabeledEdit
+          Left = 80
+          Height = 21
+          Top = 58
+          Width = 96
+          EditLabel.AnchorSideTop.Control = ledtCP
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtCP
+          EditLabel.AnchorSideBottom.Control = ledtCP
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 6
+          EditLabel.Height = 13
+          EditLabel.Top = 62
+          EditLabel.Width = 71
+          EditLabel.Caption = 'Code postal     '
+          EditLabel.ParentColor = False
+          EditLabel.Layout = tlCenter
+          LabelPosition = lpLeft
+          MaxLength = 9
+          TabOrder = 2
+        end
+        object ledtPays: TLabeledEdit
+          Left = 232
+          Height = 21
+          Top = 82
+          Width = 152
+          EditLabel.AnchorSideTop.Control = ledtPays
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtPays
+          EditLabel.AnchorSideBottom.Control = ledtPays
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 182
+          EditLabel.Height = 13
+          EditLabel.Top = 86
+          EditLabel.Width = 47
+          EditLabel.Caption = 'Pays        '
+          EditLabel.Color = clDefault
+          EditLabel.ParentColor = False
+          EditLabel.ParentShowHint = False
+          EditLabel.Layout = tlCenter
+          LabelPosition = lpLeft
+          MaxLength = 35
+          TabOrder = 3
+        end
+        object ledtRegion: TLabeledEdit
+          Left = 80
+          Height = 21
+          Top = 82
+          Width = 96
+          EditLabel.AnchorSideTop.Control = ledtRegion
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtRegion
+          EditLabel.AnchorSideBottom.Control = ledtRegion
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 7
+          EditLabel.Height = 13
+          EditLabel.Top = 86
+          EditLabel.Width = 70
+          EditLabel.Caption = 'Région            '
+          EditLabel.Color = clDefault
+          EditLabel.ParentColor = False
+          EditLabel.Layout = tlCenter
+          LabelPosition = lpLeft
+          MaxLength = 25
+          TabOrder = 4
+        end
+        object ledtVille: TLabeledEdit
+          Left = 232
+          Height = 21
+          Top = 58
+          Width = 152
+          EditLabel.AnchorSideTop.Control = ledtVille
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtVille
+          EditLabel.AnchorSideBottom.Control = ledtVille
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 183
+          EditLabel.Height = 13
+          EditLabel.Top = 62
+          EditLabel.Width = 46
+          EditLabel.Caption = 'Ville         '
+          EditLabel.Color = clDefault
+          EditLabel.ParentColor = False
+          EditLabel.ParentFont = False
+          EditLabel.Font.Color = clWindowText
+          EditLabel.Font.Height = -11
+          EditLabel.Font.Name = 'Microsoft Sans Serif'
+          LabelPosition = lpLeft
+          MaxLength = 35
+          TabOrder = 5
+        end
+      end
+      object gb2: TGroupBox
+        Left = 8
+        Height = 104
+        Top = 208
+        Width = 392
+        Caption = 'Télécommunication'
+        ClientHeight = 86
+        ClientWidth = 388
+        TabOrder = 3
+        object ledtEMail: TLabeledEdit
+          Left = 72
+          Height = 21
+          Top = 34
+          Width = 312
+          EditLabel.AnchorSideTop.Control = ledtEMail
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtEMail
+          EditLabel.AnchorSideBottom.Control = ledtEMail
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 9
+          EditLabel.Height = 13
+          EditLabel.Top = 38
+          EditLabel.Width = 28
+          EditLabel.Caption = 'E-mail'
+          EditLabel.ParentColor = False
+          EditLabel.Layout = tlCenter
+          LabelPosition = lpLeft
+          LabelSpacing = 35
+          MaxLength = 69
+          TabOrder = 1
+        end
+        object ledtSite: TLabeledEdit
+          Left = 72
+          Height = 21
+          Top = 58
+          Width = 312
+          EditLabel.AnchorSideTop.Control = ledtSite
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtSite
+          EditLabel.AnchorSideBottom.Control = ledtSite
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 9
+          EditLabel.Height = 13
+          EditLabel.Top = 62
+          EditLabel.Width = 44
+          EditLabel.Caption = 'Site Web'
+          EditLabel.ParentColor = False
+          EditLabel.Layout = tlCenter
+          LabelPosition = lpLeft
+          LabelSpacing = 19
+          MaxLength = 69
+          TabOrder = 3
+        end
+        object ledtTelecopie: TLabeledEdit
+          Left = 264
+          Height = 21
+          Top = 10
+          Width = 120
+          EditLabel.AnchorSideTop.Control = ledtTelecopie
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtTelecopie
+          EditLabel.AnchorSideBottom.Control = ledtTelecopie
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 191
+          EditLabel.Height = 13
+          EditLabel.Top = 14
+          EditLabel.Width = 47
+          EditLabel.Caption = 'Télécopie'
+          EditLabel.ParentColor = False
+          LabelPosition = lpLeft
+          LabelSpacing = 26
+          MaxLength = 21
+          TabOrder = 2
+        end
+        object ledtTelephone: TLabeledEdit
+          Left = 72
+          Height = 21
+          Top = 10
+          Width = 112
+          EditLabel.AnchorSideTop.Control = ledtTelephone
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtTelephone
+          EditLabel.AnchorSideBottom.Control = ledtTelephone
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 8
+          EditLabel.Height = 13
+          EditLabel.Top = 14
+          EditLabel.Width = 51
+          EditLabel.Caption = 'Téléphone'
+          EditLabel.ParentColor = False
+          EditLabel.Layout = tlCenter
+          LabelPosition = lpLeft
+          LabelSpacing = 13
+          MaxLength = 21
+          TabOrder = 0
+        end
+      end
+    end
+    object tshBanque: TTabSheet
+      Caption = 'Banques'
+      ClientHeight = 326
+      ClientWidth = 408
+      ImageIndex = 1
+      ParentShowHint = False
+      PopupMenu = pmMnuBqe
+      object lbl33: TLabel
+        Left = 120
+        Height = 13
+        Top = 16
+        Width = 27
+        Alignment = taCenter
+        Caption = 'R.I.B.'
+        ParentColor = False
+      end
+      object lbl34: TLabel
+        Left = 288
+        Height = 13
+        Top = 16
+        Width = 33
+        Alignment = taCenter
+        Caption = 'Devise'
+        ParentColor = False
+      end
+      object lbl13: TLabel
+        Left = 8
+        Height = 13
+        Top = 228
+        Width = 33
+        Caption = 'Devise'
+        Layout = tlCenter
+        ParentColor = False
+      end
+      object ledtBqIntitule: TLabeledEdit
+        Left = 80
+        Height = 21
+        Top = 200
+        Width = 320
+        EditLabel.AnchorSideTop.Control = ledtBqIntitule
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = ledtBqIntitule
+        EditLabel.AnchorSideBottom.Control = ledtBqIntitule
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 8
+        EditLabel.Height = 13
+        EditLabel.Top = 204
+        EditLabel.Width = 31
+        EditLabel.Caption = 'Intitulé'
+        EditLabel.ParentColor = False
+        EditLabel.Layout = tlCenter
+        LabelPosition = lpLeft
+        LabelSpacing = 41
+        MaxLength = 35
+        TabOrder = 0
+      end
+      object ledtBqCode: TLabeledEdit
+        Left = 8
+        Height = 21
+        Top = 272
+        Width = 120
+        EditLabel.AnchorSideLeft.Control = ledtBqCode
+        EditLabel.AnchorSideRight.Control = ledtBqCode
+        EditLabel.AnchorSideRight.Side = asrBottom
+        EditLabel.AnchorSideBottom.Control = ledtBqCode
+        EditLabel.Left = 8
+        EditLabel.Height = 13
+        EditLabel.Top = 256
+        EditLabel.Width = 120
+        EditLabel.Caption = '        Code banque'
+        EditLabel.ParentColor = False
+        EditLabel.Layout = tlCenter
+        MaxLength = 14
+        TabOrder = 1
+      end
+      object ledtBqGuichet: TLabeledEdit
+        Left = 128
+        Height = 21
+        Top = 272
+        Width = 120
+        EditLabel.AnchorSideLeft.Control = ledtBqGuichet
+        EditLabel.AnchorSideRight.Control = ledtBqGuichet
+        EditLabel.AnchorSideRight.Side = asrBottom
+        EditLabel.AnchorSideBottom.Control = ledtBqGuichet
+        EditLabel.Left = 128
+        EditLabel.Height = 13
+        EditLabel.Top = 256
+        EditLabel.Width = 120
+        EditLabel.Caption = '        Code guichet'
+        EditLabel.ParentColor = False
+        MaxLength = 17
+        TabOrder = 2
+      end
+      object ledtBqNumCpte: TLabeledEdit
+        Left = 248
+        Height = 21
+        Top = 272
+        Width = 120
+        EditLabel.AnchorSideLeft.Control = ledtBqNumCpte
+        EditLabel.AnchorSideRight.Control = ledtBqNumCpte
+        EditLabel.AnchorSideRight.Side = asrBottom
+        EditLabel.AnchorSideBottom.Control = ledtBqNumCpte
+        EditLabel.Left = 248
+        EditLabel.Height = 13
+        EditLabel.Top = 256
+        EditLabel.Width = 120
+        EditLabel.Caption = '        N° de compte'
+        EditLabel.ParentColor = False
+        MaxLength = 35
+        TabOrder = 3
+      end
+      object ledtBqCle: TLabeledEdit
+        Left = 368
+        Height = 21
+        Top = 272
+        Width = 32
+        EditLabel.AnchorSideLeft.Control = ledtBqCle
+        EditLabel.AnchorSideRight.Control = ledtBqCle
+        EditLabel.AnchorSideRight.Side = asrBottom
+        EditLabel.AnchorSideBottom.Control = ledtBqCle
+        EditLabel.Left = 368
+        EditLabel.Height = 13
+        EditLabel.Top = 256
+        EditLabel.Width = 32
+        EditLabel.Caption = '  Clé'
+        EditLabel.ParentColor = False
+        MaxLength = 3
+        TabOrder = 4
+      end
+      object ledtBqCommentaire: TLabeledEdit
+        Left = 80
+        Height = 21
+        Top = 296
+        Width = 240
+        EditLabel.AnchorSideTop.Control = ledtBqCommentaire
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = ledtBqCommentaire
+        EditLabel.AnchorSideBottom.Control = ledtBqCommentaire
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 8
+        EditLabel.Height = 13
+        EditLabel.Top = 300
+        EditLabel.Width = 61
+        EditLabel.Caption = 'Commentaire'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 11
+        MaxLength = 69
+        TabOrder = 5
+      end
+      object chkBqPrincipale: TCheckBox
+        Left = 256
+        Height = 19
+        Top = 224
+        Width = 105
+        Caption = 'Banque principale'
+        TabOrder = 6
+      end
+      object cbBqDevise: TComboBox
+        Left = 80
+        Height = 21
+        Top = 224
+        Width = 168
+        ItemHeight = 13
+        Style = csDropDownList
+        TabOrder = 7
+      end
+      object btnBqValider: TButton
+        Left = 328
+        Height = 23
+        Top = 296
+        Width = 75
+        Caption = 'Valider'
+        TabOrder = 8
+      end
+      object lvBanque: TListView
+        Left = 8
+        Height = 160
+        Top = 32
+        Width = 392
+        Columns = <        
+          item
+            Caption = 'Banque'
+            Width = 106
+          end        
+          item
+            Caption = 'R.I.B.'
+            Width = 172
+          end        
+          item
+            AutoSize = True
+            Caption = 'Devise'
+            Width = 49
+          end>
+        RowSelect = True
+        ShowColumnHeaders = False
+        TabOrder = 9
+        ViewStyle = vsReport
+      end
+      object lbl32: TLabel
+        Left = 16
+        Height = 13
+        Top = 16
+        Width = 37
+        Alignment = taCenter
+        Caption = 'Banque'
+        ParentColor = False
+      end
+    end
+    object tshContact: TTabSheet
+      Caption = 'Contacts'
+      ClientHeight = 326
+      ClientWidth = 408
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Microsoft Sans Serif'
+      ImageIndex = 2
+      ParentFont = False
+      PopupMenu = pmMnuCtc
+      object lbl19: TLabel
+        Left = 16
+        Height = 13
+        Top = 16
+        Width = 37
+        Caption = 'Contact'
+        ParentColor = False
+      end
+      object lbl20: TLabel
+        Left = 104
+        Height = 13
+        Top = 16
+        Width = 41
+        Caption = 'Fonction'
+        Layout = tlCenter
+        ParentColor = False
+      end
+      object lbl21: TLabel
+        Left = 200
+        Height = 13
+        Top = 16
+        Width = 51
+        Caption = 'Téléphone'
+        Layout = tlCenter
+        ParentColor = False
+      end
+      object lbl22: TLabel
+        Left = 296
+        Height = 13
+        Top = 16
+        Width = 39
+        Caption = 'Portable'
+        Layout = tlCenter
+        ParentColor = False
+      end
+      object lbl23: TLabel
+        Left = 8
+        Height = 13
+        Top = 164
+        Width = 22
+        Caption = 'Nom'
+        ParentColor = False
+      end
+      object lbl24: TLabel
+        Left = 8
+        Height = 13
+        Top = 188
+        Width = 36
+        Caption = 'Service'
+        ParentColor = False
+      end
+      object cbCivilite: TComboBox
+        Left = 72
+        Height = 21
+        Top = 160
+        Width = 48
+        ItemHeight = 13
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object cbCtcService: TComboBox
+        Left = 72
+        Height = 21
+        Top = 184
+        Width = 136
+        ItemHeight = 13
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object edtCtcNom: TEdit
+        Left = 120
+        Height = 21
+        Top = 160
+        Width = 88
+        MaxLength = 35
+        TabOrder = 2
+      end
+      object lvContact: TListView
+        Left = 8
+        Height = 112
+        Top = 32
+        Width = 392
+        Columns = <>
+        RowSelect = True
+        ShowColumnHeaders = False
+        TabOrder = 3
+        ViewStyle = vsReport
+      end
+      object gbCtc: TGroupBox
+        Left = 8
+        Height = 96
+        Top = 216
+        Width = 392
+        Caption = 'Télécommunication'
+        ClientHeight = 78
+        ClientWidth = 388
+        TabOrder = 4
+        object btnCtcVald: TButton
+          Left = 288
+          Height = 22
+          Top = 50
+          Width = 88
+          Caption = 'Valider'
+          TabOrder = 0
+        end
+        object lbl30: TLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 42
+          Caption = 'Numéros'
+          ParentColor = False
+        end
+        object ledtCtcCopie: TLabeledEdit
+          Left = 280
+          Height = 21
+          Top = 24
+          Width = 104
+          EditLabel.AnchorSideLeft.Control = ledtCtcCopie
+          EditLabel.AnchorSideRight.Control = ledtCtcCopie
+          EditLabel.AnchorSideRight.Side = asrBottom
+          EditLabel.AnchorSideBottom.Control = ledtCtcCopie
+          EditLabel.Left = 280
+          EditLabel.Height = 13
+          EditLabel.Top = 8
+          EditLabel.Width = 104
+          EditLabel.Caption = '         Télécopie'
+          EditLabel.ParentColor = False
+          MaxLength = 35
+          TabOrder = 1
+        end
+        object ledtCtcMail: TLabeledEdit
+          Left = 72
+          Height = 21
+          Top = 51
+          Width = 208
+          EditLabel.AnchorSideTop.Control = ledtCtcMail
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = ledtCtcMail
+          EditLabel.AnchorSideBottom.Control = ledtCtcMail
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 8
+          EditLabel.Height = 13
+          EditLabel.Top = 55
+          EditLabel.Width = 29
+          EditLabel.Caption = 'E-Mail'
+          EditLabel.ParentColor = False
+          LabelPosition = lpLeft
+          LabelSpacing = 35
+          MaxLength = 35
+          TabOrder = 2
+        end
+        object ledtCtcPortable: TLabeledEdit
+          Left = 176
+          Height = 21
+          Top = 24
+          Width = 104
+          EditLabel.AnchorSideLeft.Control = ledtCtcPortable
+          EditLabel.AnchorSideRight.Control = ledtCtcPortable
+          EditLabel.AnchorSideRight.Side = asrBottom
+          EditLabel.AnchorSideBottom.Control = ledtCtcPortable
+          EditLabel.Left = 176
+          EditLabel.Height = 13
+          EditLabel.Top = 8
+          EditLabel.Width = 104
+          EditLabel.Caption = '           Portable'
+          EditLabel.ParentColor = False
+          MaxLength = 35
+          TabOrder = 3
+        end
+        object ledtCtcTel: TLabeledEdit
+          Left = 72
+          Height = 21
+          Top = 24
+          Width = 104
+          EditLabel.AnchorSideLeft.Control = ledtCtcTel
+          EditLabel.AnchorSideRight.Control = ledtCtcTel
+          EditLabel.AnchorSideRight.Side = asrBottom
+          EditLabel.AnchorSideBottom.Control = ledtCtcTel
+          EditLabel.Left = 72
+          EditLabel.Height = 13
+          EditLabel.Top = 8
+          EditLabel.Width = 104
+          EditLabel.Caption = '        Téléphone'
+          EditLabel.ParentColor = False
+          MaxLength = 35
+          TabOrder = 4
+        end
+      end
+      object ledtCtcFonction: TLabeledEdit
+        Left = 272
+        Height = 21
+        Top = 184
+        Width = 128
+        EditLabel.AnchorSideTop.Control = ledtCtcFonction
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = ledtCtcFonction
+        EditLabel.AnchorSideBottom.Control = ledtCtcFonction
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 217
+        EditLabel.Height = 13
+        EditLabel.Top = 188
+        EditLabel.Width = 41
+        EditLabel.Caption = 'Fonction'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 14
+        MaxLength = 35
+        TabOrder = 5
+      end
+      object ledtCtcPrenom: TLabeledEdit
+        Left = 272
+        Height = 21
+        Top = 160
+        Width = 128
+        EditLabel.AnchorSideTop.Control = ledtCtcPrenom
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = ledtCtcPrenom
+        EditLabel.AnchorSideBottom.Control = ledtCtcPrenom
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 217
+        EditLabel.Height = 13
+        EditLabel.Top = 164
+        EditLabel.Width = 36
+        EditLabel.Caption = 'Prénom'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 19
+        MaxLength = 35
+        TabOrder = 6
+      end
+    end
+  end
+  object pmMnuBqe: TPopupMenu
+    left = 360
+  end
+  object pmMnuCtc: TPopupMenu
+    left = 272
+  end
+end

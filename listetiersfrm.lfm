@@ -1,0 +1,55 @@
+object ListeTiersForm: TListeTiersForm
+  Left = 0
+  Height = 556
+  Top = 0
+  Width = 424
+  ActiveControl = lvListeTiers
+  Caption = 'Tiers'
+  ClientHeight = 556
+  ClientWidth = 424
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnDeactivate = FormDeactivate
+  OnKeyUp = FormKeyUp
+  OnResize = FormResize
+  OnShow = FormShow
+  PopupMenu = pmMenuContextuel
+  Position = poScreenCenter
+  Visible = False
+  object lvListeTiers: TListView
+    Left = 0
+    Height = 556
+    Top = 0
+    Width = 424
+    Align = alClient
+    Columns = <    
+      item
+        Caption = 'Numéro'
+        Width = 10
+      end    
+      item
+        Caption = 'Intitulé'
+        Width = 10
+      end>
+    PopupMenu = pmMenuContextuel
+    RowSelect = True
+    TabOrder = 0
+    OnDblClick = lvListeTiersDblClick
+    OnSelectItem = lvListeTiersSelectItem
+  end
+  object pmMenuContextuel: TPopupMenu
+    left = 16
+    top = 16
+    object mmiEditionNouveau: TMenuItem
+      Action = MainForm.aliEditionNouveau
+    end
+    object mmiEditionSupp: TMenuItem
+      Action = MainForm.aliEditionSupp
+    end
+  end
+end

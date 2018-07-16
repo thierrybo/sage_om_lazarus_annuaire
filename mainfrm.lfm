@@ -15,7 +15,6 @@ object MainForm: TMainForm
   OnKeyUp = FormKeyUp
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '1.8.4.0'
   Visible = False
   WindowState = wsMaximized
   object StreamCpta: TAxcBSCPTAApplication100c
@@ -29,9 +28,9 @@ object MainForm: TMainForm
   end
   object Panel1: TPanel
     Left = 0
-    Height = 240
+    Height = 260
     Top = 0
-    Width = 256
+    Width = 272
     Align = alClient
     ParentColor = False
     TabOrder = 1
