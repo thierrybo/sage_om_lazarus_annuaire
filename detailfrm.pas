@@ -8,7 +8,8 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
   Menus, StdCtrls, ExtCtrls,
   Objets100cLib_3_0_TLB,
-  listetiersfrm;
+  listetiersfrm,
+  Adapter;
 
 type
 
@@ -556,7 +557,7 @@ Me.ContactCourant = BaseCpta.FactoryTiers.ReadNumero(Me.TiersCourant.CT_Num)
     { Passé par un objet TTiersContact (n'existait en VB) }
     ObjectID := TTiersContact(lvContact.Selected.Data).GetOID;
     FContactCourant := FBaseCpta.FactoryTiers.ReadNumero(FTiersCourant.CT_Num)
-        .FactoryTiersContact.Read(ObjectID) as IBIContact2;
+        .FactoryTiersContact.Read_(ObjectID) as IBIContact2;
     with FContactCourant do
     begin
       edtCtcNom.Text       := Nom;
@@ -610,7 +611,7 @@ begin
       SetDefault();
       WriteDefault();
     end;
-    FContactCourant.Read();
+    FContactCourant.Read_();
     FContactCourant := nil;
     InitContact();
   except on E: Exception do
