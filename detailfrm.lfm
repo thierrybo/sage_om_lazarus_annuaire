@@ -11,6 +11,9 @@ object DetailForm: TDetailForm
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Microsoft Sans Serif'
+  OnClose = FormClose
+  OnDestroy = FormDestroy
+  OnShow = FormShow
   Position = poDesktopCenter
   Visible = False
   object pgcTiers: TPageControl
@@ -21,6 +24,7 @@ object DetailForm: TDetailForm
     ActivePage = tshCoord
     TabIndex = 0
     TabOrder = 0
+    OnChange = pgcTiersChange
     object tshCoord: TTabSheet
       Caption = 'Coordonnées'
       ClientHeight = 326
@@ -42,6 +46,7 @@ object DetailForm: TDetailForm
         Color = clDefault
         Font.Color = clWindowText
         Font.Height = -11
+        ParentColor = False
         ParentFont = False
         Transparent = False
       end
@@ -52,6 +57,7 @@ object DetailForm: TDetailForm
         Width = 1
         Color = clDefault
         Layout = tlCenter
+        ParentColor = False
         Transparent = False
       end
       object lblType: TLabel
@@ -607,7 +613,7 @@ object DetailForm: TDetailForm
         Caption = 'Nom'
         ParentColor = False
       end
-      object lbl24: TLabel
+      object lbl26: TLabel
         Left = 8
         Height = 13
         Top = 188

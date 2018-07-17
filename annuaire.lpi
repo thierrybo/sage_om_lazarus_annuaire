@@ -105,22 +105,25 @@
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="mainfrm.pas"/>
+        <Filename Value="MainFrm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="mainfrm"/>
       </Unit1>
       <Unit2>
-        <Filename Value="commun.pas"/>
+        <Filename Value="Commun.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="commun"/>
       </Unit2>
       <Unit3>
-        <Filename Value="listetiersfrm.pas"/>
+        <Filename Value="ListeTiersFrm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ListeTiersForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="listetiersfrm"/>
       </Unit3>
       <Unit4>
         <Filename Value="detailfrm.pas"/>
