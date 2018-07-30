@@ -99,7 +99,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="7">
       <Unit0>
         <Filename Value="annuaire.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -137,6 +137,14 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Adapter"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="newtiersfrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="NewTiersForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="NewTiersFrm"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

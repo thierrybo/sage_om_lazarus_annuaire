@@ -8,8 +8,7 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
   Menus, StdCtrls, ExtCtrls,
   Objets100cLib_3_0_TLB,
-  listetiersfrm,
-  Adapter;
+  listetiersfrm;
 
 type
 
@@ -75,12 +74,12 @@ type
     lvBanque: TListView;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormDestroy(Sender: TObject);
     procedure lvBanqueSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvContactSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure pgcTiersChange(Sender: TObject);
     procedure btnBqValiderClick(Sender: TObject);
     procedure btnCtcValdClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Déclarations privées }
     F_Origine       : TListeTiersForm;
@@ -107,12 +106,9 @@ type
     class var FDetailForm: TDetailForm;
   end;
 
-var
-  DetailForm: TDetailForm;
-
 implementation
 
-uses commun, mainfrm { pour accéder aux menus } ;
+uses commun, mainfrm { pour accéder aux menus }, Adapter ;
 
 {$R *.lfm}
 
@@ -210,6 +206,9 @@ var
   MenuItemEditionNouveau : TMenuItem;
   MenuItemEditionSupp    : TMenuItem;
 begin
+  // Necessaire sous Lazarus sinon erreur "Class 'TMenuItem' not found" à l'éxécution
+  // http://forum.lazarus-ide.org/index.php?topic=42047.msg292872
+  RegisterClass(TMenuItem);
   case pgcTiers.TabIndex of
 //    0 : ;  { Coordonnées }
     1 :  { Banque }
@@ -305,7 +304,7 @@ begin
     If chkBqPrincipale.Checked Then
     begin
       FTiersCourant.BanquePrincipale := FBanqueCourante;
-      FTiersCourant.Write_;
+      FTiersCourant.Write_();
     End;
     InitListeBanque();
     InitSaisieBanque();

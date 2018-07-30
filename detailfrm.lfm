@@ -79,12 +79,14 @@ object DetailForm: TDetailForm
         EditLabel.AnchorSideRight.Control = ledtIntitule
         EditLabel.AnchorSideBottom.Control = ledtIntitule
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 9
+        EditLabel.Left = 3
         EditLabel.Height = 13
         EditLabel.Top = 44
-        EditLabel.Width = 52
+        EditLabel.Width = 58
         EditLabel.Caption = 'Intitulé       '
         EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Height = -11
         EditLabel.Layout = tlCenter
         LabelPosition = lpLeft
         MaxLength = 35
@@ -245,10 +247,6 @@ object DetailForm: TDetailForm
           EditLabel.Caption = 'Ville         '
           EditLabel.Color = clDefault
           EditLabel.ParentColor = False
-          EditLabel.ParentFont = False
-          EditLabel.Font.Color = clWindowText
-          EditLabel.Font.Height = -11
-          EditLabel.Font.Name = 'Microsoft Sans Serif'
           LabelPosition = lpLeft
           MaxLength = 35
           TabOrder = 5
@@ -525,6 +523,7 @@ object DetailForm: TDetailForm
         Top = 296
         Width = 75
         Caption = 'Valider'
+        OnClick = btnBqValiderClick
         TabOrder = 8
       end
       object lvBanque: TListView
@@ -546,10 +545,12 @@ object DetailForm: TDetailForm
             Caption = 'Devise'
             Width = 49
           end>
+        PopupMenu = pmMnuBqe
         RowSelect = True
         ShowColumnHeaders = False
         TabOrder = 9
         ViewStyle = vsReport
+        OnSelectItem = lvBanqueSelectItem
       end
       object lbl32: TLabel
         Left = 16
@@ -658,6 +659,7 @@ object DetailForm: TDetailForm
         ShowColumnHeaders = False
         TabOrder = 3
         ViewStyle = vsReport
+        OnSelectItem = lvContactSelectItem
       end
       object gbCtc: TGroupBox
         Left = 8
@@ -674,6 +676,7 @@ object DetailForm: TDetailForm
           Top = 50
           Width = 88
           Caption = 'Valider'
+          OnClick = btnCtcValdClick
           TabOrder = 0
         end
         object lbl30: TLabel

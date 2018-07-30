@@ -16,7 +16,6 @@ object MainForm: TMainForm
   OnShow = FormShow
   Position = poScreenCenter
   Visible = False
-  WindowState = wsMaximized
   object StreamCpta: TAxcBSCPTAApplication100c
     Left = 88
     Height = 24
@@ -30,7 +29,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 260
     Top = 0
-    Width = 272
+    Width = 256
     Align = alClient
     ParentColor = False
     TabOrder = 1

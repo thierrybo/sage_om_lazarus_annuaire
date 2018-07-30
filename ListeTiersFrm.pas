@@ -41,16 +41,12 @@ type
     procedure CreeTiers(Sender: TObject); virtual;
     procedure InitListe; virtual;
     procedure SuppTiers(Sender: TObject); virtual;
-
   end;
-
-var
-  ListeTiersForm: TListeTiersForm;
 
 implementation
 
 //uses NewTiersFrm, DetailFrm, Commun, MainFrm, ActnList;
-uses mainfrm, detailfrm;
+uses mainfrm, detailfrm, NewTiersFrm;
 
 {$R *.lfm}
 
@@ -72,19 +68,19 @@ end;
 
 procedure TListeTiersForm.lvListeTiersDblClick(Sender: TObject);
 begin
-   Screen.Cursor := crHourGlass;
-   try
-     try
-       if Assigned(TDetailForm.FDetailForm) then
-         TDetailForm.FDetailForm.Close;
-       TDetailForm.FDetailForm := TDetailForm.Create(Self, FTiersCourant);
-       TDetailForm.FDetailForm.Show;
-     except on E: Exception do
-       MessageErreur(E.Message);
-     end;
-   finally
-     Screen.Cursor := crDefault;
-   end;
+  Screen.Cursor := crHourGlass;
+  try
+    try
+      if Assigned(TDetailForm.FDetailForm) then
+        TDetailForm.FDetailForm.Close;
+      TDetailForm.FDetailForm := TDetailForm.Create(Self, FTiersCourant);
+      TDetailForm.FDetailForm.Show;
+    except on E: Exception do
+      MessageErreur(E.Message);
+    end;
+  finally
+    Screen.Cursor := crDefault;
+  end;
 end;
 
 procedure TListeTiersForm.lvListeTiersSelectItem(Sender: TObject;
@@ -186,42 +182,41 @@ begin
 *)
 end;
 
-procedure TListeTiersForm.FormClose(Sender: TObject;
-  var CloseAction: TCloseAction);
+procedure TListeTiersForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-   if Assigned(TDetailForm.FDetailForm) then
-   begin
-     TDetailForm.FDetailForm.Close();
-   end;
-   // +++++++++++++++++++++++++++++++ TActionList
-   MainForm.alEdition.State := asSuspended;
- //  MainForm.mmiEditionNouveau.Enabled := false;
- //  MainForm.mmiEditionSupp.Enabled    := false;
+  if Assigned(TDetailForm.FDetailForm) then
+  begin
+    TDetailForm.FDetailForm.Close();
+  end;
+  // +++++++++++++++++++++++++++++++ TActionList
+  MainForm.alEdition.State := asSuspended;
+//  MainForm.mmiEditionNouveau.Enabled := false;
+//  MainForm.mmiEditionSupp.Enabled    := false;
 
-   //Action := caFree; // lazarus il utiliser CloseAction à la place de Action
-   CloseAction := caFree;
-   ListeTiersForm := nil;
+  //Action := caFree; // lazarus il faut utiliser CloseAction à la place de Action
+  CloseAction := caFree;
+  ListeTiersForm := nil;
 end;
 
 procedure TListeTiersForm.FormDeactivate(Sender: TObject);
 begin
 
-  { NON, il ne faut pas désactiver le menu ici car en Delphi cet évènement
-    se déclenche même si on clique sur le form principal, du coup on a plus
-    le menu. En VB l'évènement ne se déclenche pas si on passe sur le main form
-  }
-    // ****** modif TActionList ******
-  //  MainForm.mmiEditionNouveau.OnClick := nil;
-  //  MainForm.mmiEditionSupp.OnClick    := nil;
+{ NON, il ne faut pas désactiver le menu ici car en Delphi cet évènement
+  se déclenche même si on clique sur le form principal, du coup on a plus
+  le menu. En VB l'évènement ne se déclenche pas si on passe sur le main form
+}
+  // ****** modif TActionList ******
+//  MainForm.mmiEditionNouveau.OnClick := nil;
+//  MainForm.mmiEditionSupp.OnClick    := nil;
 
-  //  MainForm.mmiEditionNouveau.Enabled := false;
-  //  MainForm.mmiEditionSupp.Enabled    := false;
+//  MainForm.mmiEditionNouveau.Enabled := false;
+//  MainForm.mmiEditionSupp.Enabled    := false;
 
-  //  MainForm.alEdition.State := asSuspended;
-  { Besoin uniquement pour BDS2006 pour que la fenêtre ne passe pas derrière la
-    fiche principale quand on clique sur le menu. D2009 pas besoin !?
-    201806 Delphi 10.2 Je commente sinon le form détail reste derrière}
-  Self.FormStyle := fsStayOnTop;
+//  MainForm.alEdition.State := asSuspended;
+{ Besoin uniquement pour BDS2006 pour que la fenêtre ne passe pas derrière la
+  fiche principale quand on clique sur le menu. D2009 pas besoin !?
+  201806 Delphi 10.2 Je commente sinon le form détail reste derrière}
+//  Self.FormStyle := fsStayOnTop;
 end;
 
 procedure TListeTiersForm.FormResize(Sender: TObject);
@@ -321,44 +316,40 @@ begin
 end;
 
 procedure TListeTiersForm.CreeTiers(Sender: TObject);
- {
-  var
-    FormTiers    : TDetailForm;
-    TypeDeTiers  : String;
-    NumDuTiers   : String;
- }
+var
+  FormTiers    : TDetailForm;
+  TypeDeTiers  : String;
+  NumDuTiers   : String;
 begin
-  {
-   try
-     if TNewTiersForm.GetNewTiers(TForm(Sender), TypeDeTiers, NumDuTiers) = mrOk
-     then
-     begin
-       case TypeTiers(TypeDeTiers) of
-         TiersTypeClient :
-             FTiersCourant := (FBaseCpta.FactoryClient.Create) as IBOTiers3;
-         TiersTypeFournisseur :
-             FTiersCourant := (FBaseCpta.FactoryFournisseur.Create) as IBOTiers3;
-         TiersTypeSalarie :
-             FTiersCourant := (FBaseCpta.FactoryTiersSalarie.Create) as IBOTiers3;
-         TiersTypeAutre :
-             FTiersCourant := (FBaseCpta.FactoryTiersAutre.Create) as IBOTiers3;
-       end;
-       with FTiersCourant do
-       begin
-         CT_Num := NumDuTiers;
-         SetDefault();
-         WriteDefault();
-       end;
-       InitListe();
-       if Assigned (TDetailForm.FDetailForm) then
-         TDetailForm.FDetailForm.Close;
-       TDetailForm.FDetailForm := TDetailForm.Create(Self, FTiersCourant);
-       TDetailForm.FDetailForm.Show;
-     end;
-   except on E: Exception do
-     MessageErreur(E.Message);
-   end;
-  }
+  try
+    if TNewTiersForm.GetNewTiers(TForm(Sender), TypeDeTiers, NumDuTiers) = mrOk
+    then
+    begin
+      case TypeTiers(TypeDeTiers) of
+        TiersTypeClient :
+            FTiersCourant := (FBaseCpta.FactoryClient.Create) as IBOTiers3;
+        TiersTypeFournisseur :
+            FTiersCourant := (FBaseCpta.FactoryFournisseur.Create) as IBOTiers3;
+        TiersTypeSalarie :
+            FTiersCourant := (FBaseCpta.FactoryTiersSalarie.Create) as IBOTiers3;
+        TiersTypeAutre :
+            FTiersCourant := (FBaseCpta.FactoryTiersAutre.Create) as IBOTiers3;
+      end;
+      with FTiersCourant do
+      begin
+        CT_Num := NumDuTiers;
+        SetDefault();
+        WriteDefault();
+      end;
+      InitListe();
+      if Assigned (TDetailForm.FDetailForm) then
+        TDetailForm.FDetailForm.Close;
+      TDetailForm.FDetailForm := TDetailForm.Create(Self, FTiersCourant);
+      TDetailForm.FDetailForm.Show;
+    end;
+  except on E: Exception do
+    MessageErreur(E.Message);
+  end;
 end;
 
 procedure TListeTiersForm.SuppTiers(Sender: TObject);

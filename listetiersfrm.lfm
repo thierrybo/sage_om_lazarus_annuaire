@@ -20,6 +20,7 @@ object ListeTiersForm: TListeTiersForm
   OnShow = FormShow
   PopupMenu = pmMenuContextuel
   Position = poScreenCenter
+  LCLVersion = '1.8.4.0'
   Visible = False
   object lvListeTiers: TListView
     Left = 0
