@@ -1,11 +1,11 @@
 object MainForm: TMainForm
   Left = 0
-  Height = 260
+  Height = 262
   Top = 0
-  Width = 256
+  Width = 258
   Caption = 'Annuaire'
-  ClientHeight = 260
-  ClientWidth = 256
+  ClientHeight = 262
+  ClientWidth = 258
   Color = clBtnFace
   Font.Color = clWindowText
   Font.Name = 'Tahoma'
@@ -16,6 +16,7 @@ object MainForm: TMainForm
   OnShow = FormShow
   Position = poScreenCenter
   Visible = False
+  WindowState = wsMaximized
   object StreamCpta: TAxcBSCPTAApplication100c
     Left = 88
     Height = 24
@@ -27,9 +28,9 @@ object MainForm: TMainForm
   end
   object Panel1: TPanel
     Left = 0
-    Height = 260
+    Height = 262
     Top = 0
-    Width = 256
+    Width = 274
     Align = alClient
     ParentColor = False
     TabOrder = 1
