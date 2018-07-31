@@ -20,7 +20,6 @@ object ListeTiersForm: TListeTiersForm
   OnShow = FormShow
   PopupMenu = pmMenuContextuel
   Position = poScreenCenter
-  LCLVersion = '1.8.4.0'
   Visible = False
   object lvListeTiers: TListView
     Left = 0
@@ -40,6 +39,7 @@ object ListeTiersForm: TListeTiersForm
     PopupMenu = pmMenuContextuel
     RowSelect = True
     TabOrder = 0
+    ViewStyle = vsReport
     OnDblClick = lvListeTiersDblClick
     OnSelectItem = lvListeTiersSelectItem
   end
