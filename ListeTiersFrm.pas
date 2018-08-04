@@ -87,7 +87,13 @@ procedure TListeTiersForm.lvListeTiersSelectItem(Sender: TObject;
   Item: TListItem; Selected: Boolean);
 begin
   try
-    if lvListeTiers.SelCount = 1 then
+    {
+     Avec Lazarus erreur quand on ferme la liste des tiers et qu'un detailfrm est ouvert ou qu'on ferme detailfrm.
+     lazarus dit que  lvListeTiers.Selected est Nil. Essayé d'ajouter "lvListeTiers.SetFocus;" rien à faire. Le seul
+     moyen est d'ajouter "and (assigned(lvListeTiers.Selected))" au test. Pas grave si FTierCourant n'est pas attribué
+     à ce moment, il le sera quand on recliquera sur un tiers. Avec Delphi pas besoin de rajouter ce test
+    }
+    if (lvListeTiers.SelCount = 1) and (assigned(lvListeTiers.Selected)) then
       FTiersCourant :=
           FBaseCpta.FactoryTiers.ReadNumero(lvListeTiers.Selected.Caption);
   except on E: Exception do
