@@ -38,6 +38,8 @@ begin
   if Key = #13 then btnOK.Click;
 end;
 
+
+{ LAzarus/Delphi : remplacé "var AProprio: TForm;" par"var AProprio: TComponent;" sino "invalid typecast" }
 class function TNewTiersForm.GetNewTiers(
   var AProprio: TComponent;
   var ATypeTiers: String;

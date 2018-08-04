@@ -4,13 +4,15 @@ object DetailForm: TDetailForm
   Top = 0
   Width = 434
   ActiveControl = pgcTiers
-  BorderStyle = bsDialog
+  BorderStyle = bsSingle
   Caption = 'Tiers'
   ClientHeight = 360
   ClientWidth = 434
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Microsoft Sans Serif'
+  FormStyle = fsStayOnTop
+  KeyPreview = True
   OnClose = FormClose
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -120,7 +122,6 @@ object DetailForm: TDetailForm
         Caption = 'Coordonnées postales'
         ClientHeight = 110
         ClientWidth = 388
-        ParentColor = False
         TabOrder = 2
         object ledtAdresse: TLabeledEdit
           Left = 80

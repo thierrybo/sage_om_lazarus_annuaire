@@ -222,7 +222,7 @@ begin
 { Besoin uniquement pour BDS2006 pour que la fenêtre ne passe pas derrière la
   fiche principale quand on clique sur le menu. D2009 pas besoin !?
   201806 Delphi 10.2 Je commente sinon le form détail reste derrière}
-  //Self.FormStyle := fsStayOnTop;
+  Self.FormStyle := fsStayOnTop;
 end;
 
 procedure TListeTiersForm.FormResize(Sender: TObject);
