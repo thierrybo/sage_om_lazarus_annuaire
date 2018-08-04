@@ -523,7 +523,6 @@ object DetailForm: TDetailForm
         Top = 296
         Width = 75
         Caption = 'Valider'
-        Default = True
         OnClick = btnBqValiderClick
         TabOrder = 8
       end
@@ -656,6 +655,7 @@ object DetailForm: TDetailForm
         Top = 32
         Width = 392
         Columns = <>
+        PopupMenu = pmMnuCtc
         RowSelect = True
         ShowColumnHeaders = False
         TabOrder = 0
@@ -677,6 +677,7 @@ object DetailForm: TDetailForm
           Top = 50
           Width = 88
           Caption = 'Valider'
+          Default = True
           OnClick = btnCtcValdClick
           TabOrder = 0
         end

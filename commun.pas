@@ -8,7 +8,8 @@ uses
   StrUtils {pour "case AnsiIndexStr"},
   Forms {pour "Application.MessageBox"},
   ComCtrls { pour FreeListViewObjects },
-  LCLType { pour MB_OK + MB_ICONERROR };
+  LCLType { pour MB_OK + MB_ICONERROR },
+  Menus { pour TMenuItem};
 
 procedure MessageErreur(AMessage: string);
 function TypeTiers(AType: string): TiersType; overload;
@@ -19,6 +20,7 @@ function StringToComponentProc(Value: string): TComponent;
 procedure FreeListViewObjects(const AListItems: TListItems);
 function SearchExactString(Items: TStrings; const Value: string;
       CaseSensitive: Boolean = True; StartIndex: Integer = -1): Integer;
+function CloneMenuItem(SourceItem: TMenuItem): TMenuItem;
 
 implementation
 
@@ -26,11 +28,13 @@ procedure MessageErreur(AMessage: string);
 begin
   Application.MessageBox(PChar(AMessage), 'Erreur', MB_OK + MB_ICONERROR);
 end;
+
 function CaseString(AChaine: string; ATableauChaines: array of string): integer;
 begin
   { Permet d'utiliser instruction Case avec des chaines }
   Result := AnsiIndexStr(AnsiLowerCase(AChaine), ATableauChaines);
 end;
+
 function ComponentToStringProc(Component: TComponent): string;
 var
   BinStream: TMemoryStream;
@@ -45,7 +49,7 @@ begin
       BinStream.Seek(0, soFromBeginning);
       ObjectBinaryToText(BinStream, StrStream);
       StrStream.Seek(0, soFromBeginning);
-      Result:= StrStream.DataString;
+      Result := StrStream.DataString;
     finally
       StrStream.Free;
     end;
@@ -53,6 +57,7 @@ begin
     BinStream.Free
   end;
 end;
+
 function StringToComponentProc(Value: string): TComponent;
 var
   StrStream: TStringStream;
@@ -64,7 +69,7 @@ begin
     try
       ObjectTextToBinary(StrStream, BinStream);
       BinStream.Seek(0, soFromBeginning);
-      Result:= BinStream.ReadComponent(nil);
+      Result := BinStream.ReadComponent(nil);
     finally
       BinStream.Free;
     end;
@@ -72,28 +77,30 @@ begin
     StrStream.Free;
   end;
 end;
+
 procedure FreeListViewObjects(const AListItems: TListItems);
 var
   idx: integer;
-  Temp : TObject;
+  Temp: TObject;
 begin
   for idx := 0 to Pred(AListItems.Count) do
   begin
-//    Temp := TObject(AListItems.Item[idx].Data);
-//    AListItems.Item[idx].Data := nil;
-//    Temp.Free;
+    //    Temp := TObject(AListItems.Item[idx].Data);
+    //    AListItems.Item[idx].Data := nil;
+    //    Temp.Free;
 
     TObject(AListItems.Item[idx].Data).Free;
     AListItems.Item[idx].Data := nil;
   end;
 end;
+
 function SearchExactString(Items: TStrings; const Value: string;
   CaseSensitive: Boolean; StartIndex: Integer): Integer;
 var
   I: Integer;
   HasLooped: Boolean;
 begin
-{ Source JVCL class function TTJvItemsSearchs.SearchExactString }
+  { Source JVCL class function TTJvItemsSearchs.SearchExactString }
   Result := -1;
   I := StartIndex + 1;
   HasLooped := False;
@@ -152,6 +159,7 @@ begin
     end;
   end;
 end;
+
 function TypeTiers(AType: string): TiersType;
 begin
   try
@@ -169,6 +177,19 @@ begin
       MessageErreur(E.Message);
       Result := TiersTypeClient;
     end;
+  end;
+end;
+
+function CloneMenuItem(SourceItem: TMenuItem): TMenuItem;
+var
+  I: integer;
+begin
+  with SourceItem do
+  begin
+    Result := NewItem(Caption, Shortcut, Checked, Enabled, OnClick,
+      HelpContext, Name + 'Copy');
+    for I := 0 to Count - 1 do
+      Result.Add(CloneMenuItem(Items[I]));
   end;
 end;
 

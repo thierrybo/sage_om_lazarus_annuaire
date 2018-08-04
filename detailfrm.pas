@@ -202,9 +202,6 @@ begin
 end;
 
 procedure TDetailForm.pgcTiersChange(Sender: TObject);
-var
-  MenuItemEditionNouveau : TMenuItem;
-  MenuItemEditionSupp    : TMenuItem;
 begin
   // Necessaire sous Lazarus sinon erreur "Class 'TMenuItem' not found" à l'éxécution
   // http://forum.lazarus-ide.org/index.php?topic=42047.msg292872
@@ -216,49 +213,24 @@ begin
         MainForm.mmiEditionNouveau.OnClick := @Self.CreeBanque;
         Mainform.mmiEditionSupp.OnClick    := @Self.SuppBanque;
         pmMnuBqe.Items.Clear();
-        MenuItemEditionNouveau :=
-            TMenuItem
-              (StringToComponentProc
-                (ComponentToStringProc
-                  (MainForm.mmiEditionNouveau)
-                )
-              );
-        pmMnuBqe.Items.Add(MenuItemEditionNouveau);
-        MenuItemEditionSupp :=
-            TMenuItem
-              (StringToComponentProc
-                (ComponentToStringProc
-                  (MainForm.mmiEditionSupp)
-                )
-              );
-        pmMnuBqe.Items.Add(MenuItemEditionSupp);
-
+        pmMnuBqe.Items.Add(CloneMenuItem(MainForm.mmiEditionNouveau));
+        pmMnuBqe.Items.Add(CloneMenuItem(MainForm.mmiEditionSupp));
         { J'ai affecté le menu en conception }
 //        lvBanque.PopupMenu := pmMnuBqe;
+      { Delphi/Lazarus qu'un seul bouton Valider par défaut PAR FORM, il faut donc le changer quand on change de tab }
+      btnBqValider.Default := True;
       end;
     2 :  { Contact }
       begin
         MainForm.mmiEditionNouveau.OnClick := @Self.CreateCtc;
         Mainform.mmiEditionSupp.OnClick    := @Self.DelCtc;
         pmMnuCtc.Items.Clear();
-        MenuItemEditionNouveau :=
-            TMenuItem
-              (StringToComponentProc
-                (ComponentToStringProc
-                  (MainForm.mmiEditionNouveau)
-                )
-              );
-        pmMnuCtc.Items.Add(MenuItemEditionNouveau);
-        MenuItemEditionSupp :=
-            TMenuItem
-              (StringToComponentProc
-                (ComponentToStringProc
-                  (MainForm.mmiEditionSupp)
-                )
-              );
-        pmMnuCtc.Items.Add(MenuItemEditionSupp);
+        pmMnuCtc.Items.Add(CloneMenuItem(MainForm.mmiEditionNouveau));
+        pmMnuCtc.Items.Add(CloneMenuItem(MainForm.mmiEditionSupp));
         { J'ai affecté le menu en conception }
 //        lvContact.PopupMenu := pmMnuCtc;
+        { Delphi/Lazarus qu'un seul bouton Valider par défaut PAR FORM, il faut donc le changer quand on change de tab }
+        btnCtcVald.Default := true;
       end;
   end;
   { TODO : A priori ne sert à rien !? }
@@ -548,7 +520,7 @@ var
   ObjectID : IBIObjectID;
 begin
   InitTxtContact();
-  if lvContact.SelCount > 0 then
+  if (lvContact.SelCount > 0) and (Assigned(lvContact.Selected)) then
   begin
     { VB :
 Me.ContactCourant = BaseCpta.FactoryTiers.ReadNumero(Me.TiersCourant.CT_Num)
