@@ -9,7 +9,6 @@ object MainForm: TMainForm
   Color = clBtnFace
   Font.Color = clWindowText
   Font.Name = 'Tahoma'
-  FormStyle = fsMDIForm
   Menu = mmMenu1
   OnCloseQuery = FormCloseQuery
   OnKeyUp = FormKeyUp
@@ -30,7 +29,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 262
     Top = 0
-    Width = 274
+    Width = 258
     Align = alClient
     ParentColor = False
     TabOrder = 1

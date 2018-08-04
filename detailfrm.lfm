@@ -206,7 +206,7 @@ object DetailForm: TDetailForm
           EditLabel.Layout = tlCenter
           LabelPosition = lpLeft
           MaxLength = 35
-          TabOrder = 3
+          TabOrder = 5
         end
         object ledtRegion: TLabeledEdit
           Left = 80
@@ -249,7 +249,7 @@ object DetailForm: TDetailForm
           EditLabel.ParentColor = False
           LabelPosition = lpLeft
           MaxLength = 35
-          TabOrder = 5
+          TabOrder = 3
         end
       end
       object gb2: TGroupBox
@@ -281,7 +281,7 @@ object DetailForm: TDetailForm
           LabelPosition = lpLeft
           LabelSpacing = 35
           MaxLength = 69
-          TabOrder = 1
+          TabOrder = 2
         end
         object ledtSite: TLabeledEdit
           Left = 72
@@ -324,7 +324,7 @@ object DetailForm: TDetailForm
           LabelPosition = lpLeft
           LabelSpacing = 26
           MaxLength = 21
-          TabOrder = 2
+          TabOrder = 1
         end
         object ledtTelephone: TLabeledEdit
           Left = 72
@@ -422,7 +422,7 @@ object DetailForm: TDetailForm
         EditLabel.Caption = '        Code banque'
         EditLabel.ParentColor = False
         EditLabel.Layout = tlCenter
-        MaxLength = 14
+        MaxLength = 5
         TabOrder = 1
       end
       object ledtBqGuichet: TLabeledEdit
@@ -440,7 +440,7 @@ object DetailForm: TDetailForm
         EditLabel.Width = 120
         EditLabel.Caption = '        Code guichet'
         EditLabel.ParentColor = False
-        MaxLength = 17
+        MaxLength = 5
         TabOrder = 2
       end
       object ledtBqNumCpte: TLabeledEdit
@@ -458,7 +458,7 @@ object DetailForm: TDetailForm
         EditLabel.Width = 120
         EditLabel.Caption = '        N° de compte'
         EditLabel.ParentColor = False
-        MaxLength = 35
+        MaxLength = 11
         TabOrder = 3
       end
       object ledtBqCle: TLabeledEdit
@@ -476,7 +476,7 @@ object DetailForm: TDetailForm
         EditLabel.Width = 32
         EditLabel.Caption = '  Clé'
         EditLabel.ParentColor = False
-        MaxLength = 3
+        MaxLength = 2
         TabOrder = 4
       end
       object ledtBqCommentaire: TLabeledEdit
@@ -523,6 +523,7 @@ object DetailForm: TDetailForm
         Top = 296
         Width = 75
         Caption = 'Valider'
+        Default = True
         OnClick = btnBqValiderClick
         TabOrder = 8
       end
@@ -630,7 +631,7 @@ object DetailForm: TDetailForm
         Width = 48
         ItemHeight = 13
         Style = csDropDownList
-        TabOrder = 0
+        TabOrder = 1
       end
       object cbCtcService: TComboBox
         Left = 72
@@ -639,7 +640,7 @@ object DetailForm: TDetailForm
         Width = 136
         ItemHeight = 13
         Style = csDropDownList
-        TabOrder = 1
+        TabOrder = 4
       end
       object edtCtcNom: TEdit
         Left = 120
@@ -657,7 +658,7 @@ object DetailForm: TDetailForm
         Columns = <>
         RowSelect = True
         ShowColumnHeaders = False
-        TabOrder = 3
+        TabOrder = 0
         ViewStyle = vsReport
         OnSelectItem = lvContactSelectItem
       end
@@ -669,7 +670,7 @@ object DetailForm: TDetailForm
         Caption = 'Télécommunication'
         ClientHeight = 78
         ClientWidth = 388
-        TabOrder = 4
+        TabOrder = 6
         object btnCtcVald: TButton
           Left = 288
           Height = 22
@@ -703,7 +704,7 @@ object DetailForm: TDetailForm
           EditLabel.Caption = '         Télécopie'
           EditLabel.ParentColor = False
           MaxLength = 35
-          TabOrder = 1
+          TabOrder = 3
         end
         object ledtCtcMail: TLabeledEdit
           Left = 72
@@ -724,7 +725,7 @@ object DetailForm: TDetailForm
           LabelPosition = lpLeft
           LabelSpacing = 35
           MaxLength = 35
-          TabOrder = 2
+          TabOrder = 4
         end
         object ledtCtcPortable: TLabeledEdit
           Left = 176
@@ -742,7 +743,7 @@ object DetailForm: TDetailForm
           EditLabel.Caption = '           Portable'
           EditLabel.ParentColor = False
           MaxLength = 35
-          TabOrder = 3
+          TabOrder = 2
         end
         object ledtCtcTel: TLabeledEdit
           Left = 72
@@ -760,7 +761,7 @@ object DetailForm: TDetailForm
           EditLabel.Caption = '        Téléphone'
           EditLabel.ParentColor = False
           MaxLength = 35
-          TabOrder = 4
+          TabOrder = 1
         end
       end
       object ledtCtcFonction: TLabeledEdit
@@ -803,7 +804,7 @@ object DetailForm: TDetailForm
         LabelPosition = lpLeft
         LabelSpacing = 19
         MaxLength = 35
-        TabOrder = 6
+        TabOrder = 3
       end
     end
   end
