@@ -370,7 +370,12 @@ de l'intitulé en sortie on peut recréer l'objet IBPDevise2
 
       cbBqDevise.Items.Add((Item[I]as IBPDevise2).D_Intitule);
     end;
-    if lvBanque.SelCount = 1 then
+    {
+     Comme pour la liste des tiers qui ne récupérait pas l'index de sélection apres fermeture du tiersdetail
+     (object nil), obligé par rapport à Delphi de tester Assigned(lvBanque.Selected). Pas grave qu'aucune banque ne
+     soit sélectionnée car on recliquera dessus.
+    }
+    if (lvBanque.SelCount = 1) and (Assigned(lvBanque.Selected)) then
     begin
       FBanqueCourante         := (
           FTiersCourant.FactoryTiersBanque.List.Item[lvBanque.selected.Index + 1]
