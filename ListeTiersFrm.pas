@@ -328,7 +328,7 @@ var
   NumDuTiers   : String;
 begin
   try
-    if TNewTiersForm.GetNewTiers(TForm(Sender), TypeDeTiers, NumDuTiers) = mrOk
+    if TNewTiersForm.GetNewTiers(TComponent(Sender), TypeDeTiers, NumDuTiers) = mrOk
     then
     begin
       case TypeTiers(TypeDeTiers) of

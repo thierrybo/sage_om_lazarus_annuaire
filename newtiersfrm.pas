@@ -23,7 +23,7 @@ type
     { Déclarations privées }
   public
     { Déclarations publiques }
-    class function GetNewTiers(var AProprio: TForm; var ATypeTiers: String;
+    class function GetNewTiers(var AProprio: TComponent; var ATypeTiers: String;
       var ANumTiers: string): Word; virtual;
   end;
 
@@ -39,7 +39,7 @@ begin
 end;
 
 class function TNewTiersForm.GetNewTiers(
-  var AProprio: TForm;
+  var AProprio: TComponent;
   var ATypeTiers: String;
   var ANumTiers: string): Word;
 var

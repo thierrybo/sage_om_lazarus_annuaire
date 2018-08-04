@@ -9,6 +9,7 @@ object NewTiersForm: TNewTiersForm
   ClientWidth = 278
   KeyPreview = True
   OnKeyPress = FormKeyPress
+  LCLVersion = '1.8.4.0'
   Visible = False
   object btnAnnuler: TButton
     Left = 176
