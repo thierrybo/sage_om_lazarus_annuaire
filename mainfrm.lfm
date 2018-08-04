@@ -29,7 +29,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 262
     Top = 0
-    Width = 258
+    Width = 274
     Align = alClient
     ParentColor = False
     TabOrder = 1

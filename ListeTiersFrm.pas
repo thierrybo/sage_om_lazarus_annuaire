@@ -113,38 +113,12 @@ begin
   // or use {$mode delphi}
   MainForm.aliEditionNouveau.OnExecute := @CreeTiers;
   MainForm.aliEditionSupp.OnExecute    := @SuppTiers;
-(*
-  if pmMenuContextuel.Items.Count = 0 then
-  begin
-    MenuItemEditionNouveau :=
-        TMenuItem
-          (StringToComponentProc
-            (ComponentToStringProc
-              (MainForm.mmiEditionNouveau)
-            )
-          );
 
-    pmMenuContextuel.Items.add(MenuItemEditionNouveau);
+  { Delphi/Lazarus. Le menu contextuel est déjà créé en conception ainsi quel les deux item Nouveau et Supprimer,
+  pas besoin comme en VB de cloner MainForm.mnuEditionNouveau et Supp et de les ajouter à pmMenuContextuel }
 
-    MenuItemEditionSupp :=
-        TMenuItem
-          (StringToComponentProc
-            (ComponentToStringProc
-              (MainForm.mmiEditionSupp)
-            )
-          );
-
-    pmMenuContextuel.Items.add(MenuItemEditionSupp);
-
-    { Parce qu'en VB n'ont pas créé le menu en conception }
-//    lvListeTiers.PopupMenu := pmMenuContextuel;
-*)
-
-    { +++++ TActionList }
+    { Activer le TActionList }
     MainForm.alEdition.State := asNormal;
-(*
-  end;
-*)
 
 (* Ancien code avant de passer par un TActionList pour le menu Edition
 var
