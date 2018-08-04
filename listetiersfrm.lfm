@@ -37,6 +37,7 @@ object ListeTiersForm: TListeTiersForm
         Width = 10
       end>
     PopupMenu = pmMenuContextuel
+    ReadOnly = True
     RowSelect = True
     TabOrder = 0
     ViewStyle = vsReport
