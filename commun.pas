@@ -140,6 +140,19 @@ begin
   end;
 end;
 
+function CloneMenuItem(SourceItem: TMenuItem): TMenuItem;
+var
+  I: integer;
+begin
+  with SourceItem do
+  begin
+    Result := NewItem(Caption, Shortcut, Checked, Enabled, OnClick,
+      HelpContext, Name + 'Copy');
+    for I := 0 to Count - 1 do
+      Result.Add(CloneMenuItem(Items[I]));
+  end;
+end;
+
 {$region 'Contrôles Type Tiers'}
 
 function TypeTiers(AType: TiersType): String;
@@ -177,19 +190,6 @@ begin
       MessageErreur(E.Message);
       Result := TiersTypeClient;
     end;
-  end;
-end;
-
-function CloneMenuItem(SourceItem: TMenuItem): TMenuItem;
-var
-  I: integer;
-begin
-  with SourceItem do
-  begin
-    Result := NewItem(Caption, Shortcut, Checked, Enabled, OnClick,
-      HelpContext, Name + 'Copy');
-    for I := 0 to Count - 1 do
-      Result.Add(CloneMenuItem(Items[I]));
   end;
 end;
 
