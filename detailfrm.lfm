@@ -16,7 +16,7 @@ object DetailForm: TDetailForm
   OnClose = FormClose
   OnDestroy = FormDestroy
   OnShow = FormShow
-  Position = poDesktopCenter
+  Position = poDefault
   Visible = False
   object pgcTiers: TPageControl
     Left = 8
